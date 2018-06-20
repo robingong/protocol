@@ -2,12 +2,12 @@
 
 ## Overview and definitions
 
-- An **oracle** is an entity on the blockchain and lives in the **oracle state tree** in a full node.
-- An oracle is operated by an **oracle operator**.
-- The oracle operator creates an oracle through posting a **oracle register transaction** on the chain.
-- The oracle register transaction register an account as an oracle. (One account - one oracle)
-- Any user can query an oracle by posting an  **oracle query transaction** on the chain.
-- The oracle query transaction creates an **oracle query object** in the oracle state tree.
+- An **oracle** is an entity on the blockchain and lives in the **oracle state tree** in a full node.预言机是区块连上的一个实体，存在于“全节点”的“预言机状态树”上。
+- An oracle is operated by an **oracle operator**.预言机操作器（**oracle operator**） 操作 预言机。
+- The oracle operator creates an oracle through posting a **oracle register transaction** on the chain.预言机操作器通过“预言机注册事务”（**oracle register transaction**），创建一个预言机。
+- The oracle register transaction register an account as an oracle. (One account - one oracle)  “预言机注册事务”注册一个帐号作为预言机。（一个帐号，一个预言机）
+- Any user can query an oracle by posting an  **oracle query transaction** on the chain.用户可以向链发送“预言机查询事务”（**oracle query transaction** ），来查询 一个预言机。
+- The oracle query transaction creates an **oracle query object** in the oracle state tree.“预言机查询事务” 会在“预言机状态树”创建一个预言机查询对象（**oracle query object** ）。
 - The oracle operator scans the transactions on the blockchain for the
   oracle query transaction through whatever means. Probably on the operator's own node.
 - The oracle operator responds to the oracle query by posting an **oracle response transaction** on the chain.
