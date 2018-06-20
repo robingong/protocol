@@ -32,12 +32,12 @@
 - There should be incentives to use simple types in oracle answers (boolean, integer).
   - For example, through access cost in smart contracts.
 
-### Should oracle responses have restrictions on use?
+### Should oracle responses have restrictions on use? 预言机响应需要限制使用吗？
 - For example, should only the creator of the query be able to use the
   answer in a smart contract?
 - Should the framework support encryption/decryption of answers?
 
-### An oracle query/response has a TTL
+### An oracle query/response has a TTL 预言机查询/响应 有 TTL （ Time To Live？）
 - The actual response will remain on the chain.
 - The response will be pruned from the state tree after a certain number of blocks.
-- The cost of posting the answer should reflect the TTL.
+- The cost of posting the answer should reflect the TTL. 发布答案的成本应该反应TTL
