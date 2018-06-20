@@ -9,25 +9,25 @@
 - Any user can query an oracle by posting an  **oracle query transaction** on the chain.用户可以向链发送“预言机查询事务”（**oracle query transaction** ），来查询 一个预言机。
 - The oracle query transaction creates an **oracle query object** in the oracle state tree.“预言机查询事务” 会在“预言机状态树”创建一个预言机查询对象（**oracle query object** ）。
 - The oracle operator scans the transactions on the blockchain for the
-  oracle query transaction through whatever means. Probably on the operator's own node.
-- The oracle operator responds to the oracle query by posting an **oracle response transaction** on the chain.
-- The oracle response transaction modifies the oracle query object by adding the response.
-- After the response have been added, the oracle query object is closed, and is now immutable.
+  oracle query transaction through whatever means. Probably on the operator's own node. 预言机操作器为 查询事务 扫描区块链上的事务。
+- The oracle operator responds to the oracle query by posting an **oracle response transaction** on the chain.预言机操作器 会把查询预言机的“预言机响应事务”（**oracle response transaction**）发回到链上。
+- The oracle response transaction modifies the oracle query object by adding the response.“预言机响应事务” 会修改预言机查询对象，添加上响应。
+- After the response have been added, the oracle query object is closed, and is now immutable.响应 添加后，预言机查询对象关闭，并不可修改。
 
-## [Oracle life cycle examples](./oracle_life_cycle.md)
+## [Oracle life cycle examples](./oracle_life_cycle.md) 预言机生命周期例子 
 
-## [Oracle state trees](./oracle_state_tree.md)
+## [Oracle state trees](./oracle_state_tree.md) 预言机状态树
 
-## [Oracle transactions](./oracle_transactions.md)
+## [Oracle transactions](./oracle_transactions.md) 预言机事务
 
-## Technical aspects of Oracle operations
+## Technical aspects of Oracle operations 预言机操作器的技术层面
 
-### Oracles have a published API
+### Oracles have a published API 预言机API
 
 - The API defines the format that queries should have.
 - The API defined the format answers will have.
 
-### Oracle responses have a type declaration
+### Oracle responses have a type declaration 预言机响应的类型声明
 - Types should correspond to types in the smart contract language.
 - There should be incentives to use simple types in oracle answers (boolean, integer).
   - For example, through access cost in smart contracts.
