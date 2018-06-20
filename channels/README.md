@@ -1,15 +1,15 @@
-# State Channels
+# State Channels 状态通道
 
 State channels allow entities to communicate with each other with the goal of
-collectively computing some function `f`.
+collectively computing some function `f`.状态通道允许实体相互通讯，来完成某项功能f。
 This `f` can be as simple as "send 0.1 coins every minute" or it could represent
 a decentralised exchange. These functions are, in our case, represented by smart
 contracts and just like any legal contract, we need an arbiter in case one party
-tries to act maliciously. This arbiter is the blockchain.
+tries to act maliciously. This arbiter is the blockchain.这个功能f可以是发送coin，或去中心化交易。我们这里，f是智能合约，像法律合同，我们需要仲裁者（arbiter） 来处理恶意操作。
 
-- trustless
-- off chain vs on chain
-- same guarantees as blockchain
+- trustless 去信任
+- off chain vs on chain 链下 vs 链上
+- same guarantees as blockchain 担保
 
 
 ## Table of Contents
@@ -42,31 +42,31 @@ tries to act maliciously. This arbiter is the blockchain.
 ## Goals
 
 
-- generic solution that supports many (all?) smart contracts
+- generic solution that supports many (all?) smart contracts 支持很多种智能合约
 	- even better if one state channel is generic, s.t. it can be instantiated and
-	  then be used for many different contracts
+	  then be used for many different contracts如果状态通道是通用的，也可以被实例化用在不同的合约（场景）里。
 - composability of channels, i.e. an application works for the
-  A <-> B case should also work in the A <-B-> C (A to C via B) case
-- upgradeable without having to close/re-open the channel
-- the previous should enable state channels to be long lived
-	- this is at odds with privacy
-- on chain operations should be kept to a minimum
+  A <-> B case should also work in the A <-B-> C (A to C via B) case  通道能组合
+- upgradeable without having to close/re-open the channel 不关/重开 通道，就能升级通道
+- the previous should enable state channels to be long lived 通道可以长期存在
+	- this is at odds with privacy 上面这点是和隐私性矛盾的
+- on chain operations should be kept to a minimum （主？）链上操作应该尽量少
 - participants state should also be kept to a minimum, i.e. O(log n) or better
-  constant multiplier
-- trust-less to a degree with blockchain as the arbiter
-- any party involved can close a channel, but it should be discouraged
+  constant multiplier 参与者的状态应该尽量少上链
+- trust-less to a degree with blockchain as the arbiter 去信任 是某种程度的“区块链作为仲裁者”
+- any party involved can close a channel, but it should be discouraged 参加通道的任意方读可以关闭通道，但是不鼓励
 
 Generally, an ideal state channel design should be a strict improvement over
 handling interactions on chain. The dimensions we are going to use to measure
 improvements are as follows:
-
+一般地，理想的状态通道设计应该是严格把交互放在链上。（？）
 - Privacy
 - Security
 - Speed
 - Cost
 
 
-### Privacy
+### Privacy 隐私
 
 On-chain interactions offer little to no privacy, since we currently make no
 efforts to hide interacting parties or the nature of their interactions.
