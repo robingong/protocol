@@ -1,13 +1,13 @@
-# Aeternity Naming System
+# Aeternity Naming System aeternity命名系统
 
 
-## Abstract
+## Abstract 
 
 This document describes the first draft of the Aeternity Naming System,
-short AENS.
+short AENS.简称 AENS
 
 
-## Motivation
+## Motivation 命名要对人友好
 
 Entities native to most blockchain systems are addressed or identified
 by their hashes, which are generally `n` bit numbers displayed in a hex
@@ -15,7 +15,7 @@ or base64/base58 notation, all of which are somewhat unfriendly to the
 humans trying to use these systems.
 
 
-## Background
+## Background 背景
 
 A solution to a similar problem is the Domain Name System, or DNS, which
 should be familiar to most people, providing human readable names for IP
@@ -38,9 +38,9 @@ postfix, e.g. `mywallet.eth`. ENS currently allows users to associate a single
 
 Names are part of a namespace, which works just like DNS, e.g. `mywallet.aet`
 or `привет.aet` are part of the same `.aet` namespace.
+名字是命名空间 namespace的一部分，就像DNS。比如`mywallet.aet`和 `привет.aet`都是 `.aet` namespace的一部分。
 
-
-## Governance
+## Governance 治理
 
 This first draft of the AENS is not going to have any governance mechanism but
 will only allow registrations under a single namespace: `.aet`.
@@ -48,9 +48,9 @@ We will also not include mechanisms similar to the `sunrise` and `landrush`
 periods, which are common for DNS, where registration is restricted to small
 select groups and trademark holders in order to avoid name squatting, before
 the general public can start claiming names.
+第一个版本没有治理机制。
 
-
-## Mechanisms
+## Mechanisms 机制
 
 It is unclear what a good mechanism for a naming system would look
 like. If we imagine two actors both being interested in the same name,
@@ -62,13 +62,14 @@ to change this behaviour in the future. If we start out by giving this
 fee to miners, they will be very hesitant to accept any changes, which
 will impact their income negatively. Thus starting out with burning
 could allow us an easier path for future update to the fee structures.
+费用是遏制spam和squatting的主要机制。这个初始版本是燃烧治理费用，为了在将来可以修改这种机制。如果我们把费用给矿工，那么他们将来会不接受改变（没有费收）
 
-Every entry in the `.aet` namespace pays the same amount of fees.
+Every entry in the `.aet` namespace pays the same amount of fees.其中`.aet` namespace里每个实体的费用是一样的
 
 Each entry has a fixed expiration date on claim after which the entry should
 transition into the `revoked` state. Once it reaches this state, the name
 will be released, i.e. transition into the `unclaimed` state, after which
-it could be claimed again.
+it could be claimed again.每个实体都有过期时间。
 
 To prevent the entry from expiring a user can, at any point before reaching
 the expiration date, update the entry, which pushes the expiration date
