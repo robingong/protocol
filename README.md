@@ -30,6 +30,8 @@ Epoch is the reference implementation of the Aeternity protocol. Since we don't
 want to fragment relevant information too much, documentation specific to Epoch,
 such as API descriptions, will be kept in this repository until we decide for a
 better solution.
+Epoch是ae协议的参考实现。有些信息和文档是针对Epoch的，将来会有更好的解决方案。
+
 
 - [API](./epoch/api/README.md)
 
