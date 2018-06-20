@@ -1,6 +1,7 @@
 # Æternity protocol
 
 This document defines the Æternity protocol.
+本文档定义了ae协议。
 
 ## Disclaimer
 
@@ -11,7 +12,7 @@ mechanisms.
 
 The drafts directory contains specifications that are currently being
 implemented or considered for implementation.
-
+文档在演进中，是草稿版本。
 
 
 ## [Oracles](./oracles/oracles.md)
