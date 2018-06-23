@@ -59,50 +59,52 @@ tries to act maliciously. This arbiter is the blockchain.这个功能f可以是�
 Generally, an ideal state channel design should be a strict improvement over
 handling interactions on chain. The dimensions we are going to use to measure
 improvements are as follows:
-一般地，理想的状态通道设计应该是严格把交互放在链上。（？）
-- Privacy
-- Security
-- Speed
-- Cost
+一般地，理想的状态通道设计对链上交易是一个明确的提升。从下面4个维度来衡量
+- Privacy 隐私
+- Security 安全
+- Speed 速度
+- Cost 成本
 
 
 ### Privacy 隐私
 
 On-chain interactions offer little to no privacy, since we currently make no
-efforts to hide interacting parties or the nature of their interactions.
+efforts to hide interacting parties or the nature of their interactions.链上建议没有隐私
 
 State channels, at the least, reveal that two parties establish a channel and
 the amount of coins they commit to the channel, which is no improvement.
 In the case that neither party tries to cheat, the exact nature of their
 interactions stays unrevealed, since a mutual closing of a channel does not
-require publishing of any state.
+require publishing of any state.状态通道 不对外披露状态？
 
-With that in mind, state channels offer a slight improvement in privacy.
+With that in mind, state channels offer a slight improvement in privacy.状态通道在隐私方面有少量改进。
 
 
-### Security
+### Security 安全
 
 State channels offer almost the same security guarantees as normal on-chain
-transactions.
+transactions. 状态通道能提供几乎和链上交易一样的安全
 
 - ***Liveness***: both peers can independently initiate closing of a channel and
   that operation is then processed by the blockchain with the usual assumptions
-  of liveness.
+  of liveness.节点可以独立初始化“通道的关闭”，区块链一般假设通道还活着来处理操作
 - ***Trust-less***: since operations need to be signed by both peers and they
   sign operations based on their view of the state, both parties will only
-  sign operations they agree on and don't need to trust the other peer.
+  sign operations they agree on and don't need to trust the other peer. 
+操作需要双方签名，他们基于自己的状态视图，进行签名；双方仅仅对他们同意的操作签名，不用信任对方。
+
 
 Thus security is on par.
 
 
-### Speed
+### Speed 速度
 
-Opening a state channel incurs the normal on-chain latency but after the channel
+Opening a state channel incurs遭受 the normal on-chain latency but after the channel
 has been established, operations can be executed as fast as both peers can
 process them, which should be a major improvement over on-chain interactions.
+开启通道要承受链上延迟，建立后，就很快
 
-
-### Cost
+### Cost 成本
 
 Using state channels requires at least two on-chain transactions, for opening
 and closing them. Once a channel is established, no further on-chain
@@ -112,7 +114,7 @@ if one already has other open channels and thus might stand to gain fees by
 relaying messages.
 
 
-## Terms
+## Terms术语
 
 We try to follow the naming conventions used by the lightning network, wherever
 it makes sense, in hope to be able to make it easier for others to adopt,
@@ -135,30 +137,30 @@ denote this by `Type(Id)`, e.g. `Account(A)` is the account at address `A`. If
 we then want to get the balance of that account we use `Account(A).balance`
 
 
-## Channel types
+## Channel types 通道类型
 
 The most generic kind of channel would be one that lets peers instantiate any
 arbitrary smart contract within the channel and does not restrict the number of
-peers that can participate in such a channel.
+peers that can participate in such a channel. 最常见的通道可以让双方随着通道初始化智能合约，并不限制通道参与方的数量
 
 Our construction will try to meet the former property, allowing any number of
 arbitrary smart contracts to be executed in the channel, but restrict the latter
-to two peers per channel.
+to two peers per channel.允许通道里任意数量任何合约执行，但是通讯只发生在每个通道里的2个参与方
 
 With that in mind, the two peers in a channel will most likely not have the
 same roles but instead end up in a client-server arrangement for the majority of
 channels, where a client is using a service offered by the server, which is
 highly available and probably also some well known entity, mirroring the status
-quo of the current web.
+quo of the current web. 通道里的2个参与方不太会有相同的权限，有点像client-server这种协议
 A popular example would be an exchange, where users connect to an exchange via
 state channels. This would process would be trustless, since exchanges can not
 lose funds, that haven't been signed over to them
-
+比如 一个人通过状态通道连到交易所。
 
 - offer (verified) library for standard functionality, e.g. simple payments
 
 
-## Topology
+## Topology 拓补
 
 It is still very much unclear, what the topology of a widely used channel
 network would look like but it seems that a hub and spoke model would be the
@@ -173,12 +175,11 @@ connected and offer highly available and short paths for most users. In turn, th
 the disappearance of one of these hubs would have a big impact.
 
 
-## Incentives
+## Incentives 激励
 
 Operating a channel should be considered collaborative game with incentive for cooperation
 
-Operating a channel takes at least two on-chain operations and therefore has a base amount of fees is required and this fact could be abused by a malicious
-peer.
+Operating a channel takes at least two on-chain operations and therefore has a base amount of fees is required and this fact could be abused by a malicious peer.操作通道至少2个链上操作，需要一些基础费用，可能会被恶意用户滥用。
 
 (***TODO***: To discourage malicious behaviour, a successful slashing of a
 channel closing, forfeits the malicious party's funds to the slasher but how can
@@ -267,7 +268,7 @@ multiplexed easily, given that each channel has a unique id, so re-using
 connection does not pose any problems.
 
 
-### Overview
+### Overview 概览
 
 The following diagram should give an overview of the off-chain state machine.
 The starting point for any channel is the `closed` state.
